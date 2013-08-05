@@ -1,8 +1,10 @@
 class PostsController < ApplicationController 
 
   def create
-    
+  @post = Post.new(params[:post]) #:title => params[:post][:title], :content => params[:post][:content]) 
+  @post.save
 
+  redirect_to @post
   end
 
   def new
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find_by_id(params[:id])
   end
 
   def destroy
