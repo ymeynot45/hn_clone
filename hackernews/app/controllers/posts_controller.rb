@@ -1,10 +1,16 @@
 class PostsController < ApplicationController 
 
   def create
-    @post = Post.new(params[:post]) #:title => params[:post][:title], :content => params[:post][:content]) 
-    @post.save
+    @post = Post.new(params[:post])
+    if @post.valid?
+      @post.save
+      redirect_to @post
+    else
+      @errors = @post.errors.messages
+      render 'new'
+    end
 
-    redirect_to @post
+    
   end
 
   def new
@@ -27,8 +33,14 @@ class PostsController < ApplicationController
   end
 
   def update
-    Post.update_attributes(params[:post])
-    #set up if/else for error handling later
+    @post = Post.update_attributes(params[:post])
+    if @post.valid?
+      @post.update
+      redirect_to @post
+    else
+      @errors = @post.errors.messages
+      render 'edit'
+    end
   end
 
   def edit

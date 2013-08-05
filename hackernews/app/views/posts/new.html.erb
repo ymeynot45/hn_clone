@@ -1,11 +1,22 @@
 <h1>Hello body</h1>
 <%= form_for :post, url: posts_path do |f| %>
   <p>
-    <%= f.label :title %> <%if @errors%> <%=errors.any?[:title] %><%end%><br>
+    <%= f.label :title %> 
+    <% if @post%> 
+      <%if @post.errors[:title].any?%> 
+        <%=@errors[:title] %>
+      <%end%>
+    <%end%><br>
     <%= f.text_field :title %>
   <p>
     <%= f.label :content %><br>
+    <% if @post%> 
+      <%if @post.errors[:content].any?%> 
+        <%=@errors[:content] %>
+      <%end%>
+    <%end%><br>
     <%= f.text_area :content %>
   <p>
     <%= f.submit  %><br>
 <% end %>
+
