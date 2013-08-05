@@ -2,5 +2,6 @@
 <h2> <%= @post.title %></h2>
 <p>  <%= @post.content%> </p>
 
-<p><%= link_to "Edit", posts_path %></p>
-
+<p><%= link_to "Edit", edit_post_path(@post) %></p>
+<br>
+<p><%= link_to "Destroy", post_path(@post), :method => :delete, :confirm => "Are you sure?" %></p>

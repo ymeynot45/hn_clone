@@ -21,16 +21,18 @@ class PostsController < ApplicationController
   end
 
   def destroy
-
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to action: 'index'
   end
 
   def update
-
+    Post.update_attributes(params[:post])
+    #set up if/else for error handling later
   end
 
   def edit
     @post = Post.find_by_id(params[:id])
-    redirect_to @post
   end
 
 end
