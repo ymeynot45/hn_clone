@@ -1,11 +1,11 @@
 <h1>Hello body</h1>
-<%= form_for :post, url: posts_path, html: { class: "pure-form" } do |f| %>
+<%= form_for :post, url: posts_path do |f| %>
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title, class: "pure-input pure-input-rounded" %>
+    <%= f.text_field :title %>
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
   <p>
-    <%= f.submit class: "pure-button pure-button-primary" %><br>
+    <%= f.submit  %><br>
 <% end %>
