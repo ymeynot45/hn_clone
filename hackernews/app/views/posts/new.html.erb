@@ -1,1 +1,14 @@
 <h1>Hello body</h1>
+
+<%= form_for("/posts/new", method: "post") do %>
+  <%= label_tag(:title), "Post title" %>
+  <br>
+  <%= text_field_tag(:title) %>
+  <br>
+  <%= label_tag(:content), "Post content" %>
+  <br>
+  <%= text_field_tag(:content) %>
+  <%= submit_tag("Post!") %>
+  <% end %>
+
+
