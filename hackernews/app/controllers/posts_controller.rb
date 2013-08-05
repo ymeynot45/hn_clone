@@ -1,10 +1,10 @@
 class PostsController < ApplicationController 
 
   def create
-  @post = Post.new(params[:post]) #:title => params[:post][:title], :content => params[:post][:content]) 
-  @post.save
+    @post = Post.new(params[:post]) #:title => params[:post][:title], :content => params[:post][:content]) 
+    @post.save
 
-  redirect_to @post
+    redirect_to @post
   end
 
   def new
@@ -16,15 +16,21 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find(params[:id])
+   
   end
 
   def destroy
 
   end
 
-  def put
+  def update
 
+  end
+
+  def edit
+    @post = Post.find_by_id(params[:id])
+    redirect_to @post
   end
 
 end
